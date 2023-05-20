@@ -31,4 +31,5 @@ function prime(value ,numbers)
 }
 
 const numbers = [1,2,3,4,5,6,7,8,9,10]
+console.log(prime(0, numbers));
 console.log(prime(1, numbers));
