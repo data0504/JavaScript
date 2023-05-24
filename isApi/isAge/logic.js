@@ -58,11 +58,17 @@ function check(ageClient, ageServer, result)
     if (!checkoutReslut(ageClient, ageServer, result)) return false;
     return true
 }
-function parseAge(ageClient, ageServer, result)
+async function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+async function parseAge(ageClient, ageServer, result)
 {
     result.textContent = "結果: 比較中"
-    if (!check(ageClient, ageServer, result)) return;
-    result.textContent = "結果: 答對了"
+
+    await delay(500);
+    if (!check(ageClient, ageServer, result))return;
+
+    result.textContent = "結果: 答對了";
 }
 function callAgeAPI() {
     const ageUrl="https://api.agify.io/?name=danny"
